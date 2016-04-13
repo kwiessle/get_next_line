@@ -6,7 +6,7 @@
 #    By: kwiessle <kwiessle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/10/13 10:51:52 by kwiessle          #+#    #+#              #
-#    Updated: 2015/10/13 10:51:56 by kwiessle         ###   ########.fr        #
+#*   Updated: 2016/04/13 19:26:07 by kwiessle         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,7 +94,7 @@ GCC= clang -Wall -Wextra -Werror
 
 #INCLUDE BLOC
 #Don't forget to include the other librarie that yo use
-INC_LIB=
+INC_LIB= ./includes
 INC_PATH= ./
 INC= -I $(INC_LIB) -I $(INC_PATH)
 

@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kwiessle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/13 11:29:46 by kwiessle          #+#    #+#             */
-/*   Updated: 2016/04/13 19:27:28 by kwiessle         ###   ########.fr       */
+/*   Created: 2016/04/13 12:59:22 by kwiessle          #+#    #+#             */
+/*   Updated: 2016/04/13 19:24:10 by kwiessle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "get_next_line.h"
 
-# define BUFF_SIZE 69
-# define EOL '\n'
-# include "./libft/libft.h"
-# include <sys/uio.h>
-# include <fcntl.h>
-# include <sys/types.h>
-# include <stdio.h>
-
-typedef struct		s_line
+int		main(int ac, char **av)
 {
-	int				fd;
-	char			*line;
-	struct	s_line	*next;
-}					t_line;
+	int		fd;
+	int		ret;
+	char	*line;
 
-int		get_next_line(const int fd, char **line);
+	fd = open(av[1], O_RDONLY);
+	line = NULL;
+	while ((ret = get_next_line(fd, &line) > 0))
+		printf("%s| -> %d\n", line, ret);
+	printf("%s| -> %d\n", line, ret);
 
-#endif
+	return (0);
+}
