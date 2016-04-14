@@ -1,4 +1,4 @@
-#include "libft.h"
+#include "get_next_line.h"
 
 int		main(int ac, char **av)
 {
@@ -8,7 +8,7 @@ int		main(int ac, char **av)
 
 
 	line = NULL;
-	fd = open(av[1], O_RDONLY);
+	fd = open(av[ac -1], O_RDONLY);
 	while ((ret = get_next_line(fd, &line) > 0))
 	{
 		ft_putstr(line);
