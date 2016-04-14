@@ -1,16 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: kwiessle <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/13 12:59:22 by kwiessle          #+#    #+#             */
-/*   Updated: 2016/04/13 19:24:10 by kwiessle         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "get_next_line.h"
+#include "libft.h"
 
 int		main(int ac, char **av)
 {
@@ -18,11 +6,23 @@ int		main(int ac, char **av)
 	int		ret;
 	char	*line;
 
-	fd = open(av[1], O_RDONLY);
-	line = NULL;
-	while ((ret = get_next_line(fd, &line) > 0))
-		printf("%s| -> %d\n", line, ret);
-	printf("%s| -> %d\n", line, ret);
 
+	line = NULL;
+	fd = open(av[1], O_RDONLY);
+	while ((ret = get_next_line(fd, &line) > 0))
+	{
+		ft_putstr(line);
+		ft_putstr("\033[32;1m|---> \033[0m");
+		ft_putstr("\033[35;1m");
+		ft_putnbr(ret);
+		ft_putstr("\033[0m");
+		ft_putstr("\n");
+	}
+	ft_putstr("\n\n");
+	ft_putstr("\033[31;1mFINAL RET = [\033[0m");
+	ft_putstr("\033[35;1m");
+	ft_putnbr(ret);
+	ft_putstr("\033[0m");
+	ft_putstr("\033[31;1m]\n\n\033[0m");
 	return (0);
 }

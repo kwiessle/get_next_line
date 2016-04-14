@@ -6,7 +6,7 @@
 /*   By: kwiessle <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/13 11:29:46 by kwiessle          #+#    #+#             */
-/*   Updated: 2016/04/13 19:27:28 by kwiessle         ###   ########.fr       */
+/*   Updated: 2016/04/14 11:17:08 by kwiessle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # define BUFF_SIZE 69
 # define EOL '\n'
-# include "./libft/libft.h"
+# include "libft.h"
 # include <sys/uio.h>
 # include <fcntl.h>
 # include <sys/types.h>
@@ -25,9 +25,9 @@ typedef struct		s_line
 {
 	int				fd;
 	char			*line;
-	struct	s_line	*next;
+	struct s_line	*next;
 }					t_line;
 
-int		get_next_line(const int fd, char **line);
+int					get_next_line(const int fd, char **line);
 
 #endif
